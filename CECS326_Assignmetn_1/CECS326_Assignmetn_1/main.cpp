@@ -6,18 +6,38 @@ const int ARRAY_LENGTH = 20;
 
 struct memory
 {
-	const char *chara[20];
-	int num[20];
+	char *_char[20];
+	int _charLength[20];
 };
+
+char randomLetter()
+{
+	char letters[26] = { 'A' , 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+	
+	int randInt = rand() % sizeof(letters);
+	char randomLetter = letters[randInt];
+	return randomLetter;
+}
 
 int main()
 {
 	memory mem;
 	
-	mem.num[0] = 2700;
+	mem._charLength[0] = 2700;
 	for (int i = 1; i < ARRAY_LENGTH; i++)
 	{
-		mem.num[i] = 2 * mem.num[i - 1];
+		mem._charLength[i] = 2 * mem._charLength[i - 1];
+	}
+
+	for (int i = 0; i < ARRAY_LENGTH; i++)
+	{
+		mem._char[i] = new char[mem._charLength[i]];
+
+		//INSERT random upper case letter
+		for (int j = 0; j < ARRAY_LENGTH; j++)
+		{
+			mem._char[i][j] = randomLetter();
+		}
 	}
 
 	int choice;
@@ -34,10 +54,7 @@ int main()
 	{
 		case 1:
 			cout << "Accessing pointer... " << endl;
-			for (int i = 0; i < 20; i++)
-			{
-				cout << mem.num[i] << endl;
-			}
+			cout << mem._char[1] << endl;
 			break;
 		case 2:
 			break;
