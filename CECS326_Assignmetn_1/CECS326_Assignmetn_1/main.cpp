@@ -40,30 +40,55 @@ int main()
 		}
 	}
 
-	int choice;
+	bool terminate = false;
 
-	cout << "Main Menu " << endl;
-	cout << "(1) Access a Pointer" << endl;
-	cout << "(2) List deallocated memory (index)" << endl;
-	cout << "(3) Deallocate all memory" << endl;
-	cout << "(4) Exit Program" << endl;
-
-	cin >> choice;
-
-	switch (choice)
+	while (!terminate)
 	{
-		case 1:
-			cout << "Accessing pointer... " << endl;
-			cout << mem._char[1] << endl;
-			break;
-		case 2:
-			break;
-		case 3:
-			break;
-		case 4:
-			break;
+		int choice;
+
+		cout << "Main Menu " << endl;
+		cout << "(1) Access a Pointer" << endl;
+		cout << "(2) List deallocated memory (index)" << endl;
+		cout << "(3) Deallocate all memory" << endl;
+		cout << "(4) Exit Program" << endl;
+
+		cin >> choice;
+
+		switch (choice)
+		{
+			case 1:
+			
+				int index;
+				int subchoice; 
+
+				cout << "Enter the index of the array to manipulate." << endl;
+				cin >> index;
+				cout << "(1) Print the first 10 char's in the chosen array." << endl;
+				cout << "(2) Delete all the char's associated with this pointer." << endl;
+				cout << "(3) Return to main menu." << endl;
+				cin >> subchoice;
+
+				switch (subchoice)
+				{
+					case 1:
+						break;
+					case 2:
+						break;
+					case 3:
+						break;
+				}
+
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				cout << "Exiting Program... " << endl;
+				terminate = true;
+		}
 	}
 
+	cout << "Program Exited." << endl;
 	system("pause");
 	return 0;
 }
